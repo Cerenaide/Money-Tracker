@@ -41,19 +41,15 @@ function addTransaction(e) {
   }
 }
 
-// Generate random ID
 function generateID() {
   return Math.floor(Math.random() * 100000000);
 }
-
-// Add transactions to DOM list
 function addTransactionDOM(transaction) {
   // Get sign
   const sign = transaction.amount < 0 ? '-' : '+';
 
   const item = document.createElement('li');
 
-  // Add class based on value
   item.classList.add(transaction.amount < 0 ? 'minus' : 'plus');
 
   item.innerHTML = `
@@ -88,7 +84,6 @@ function updateValues() {
   money_minus.innerText = `Rs.${expense}`;
 }
 
-// Remove transaction by ID
 function removeTransaction(id) {
   transactions = transactions.filter(transaction => transaction.id !== id);
 
@@ -96,13 +91,10 @@ function removeTransaction(id) {
 
   init();
 }
-
-// Update local storage transactions
 function updateLocalStorage() {
   localStorage.setItem('transactions', JSON.stringify(transactions));
 }
 
-// Init app
 function init() {
   list.innerHTML = '';
 
